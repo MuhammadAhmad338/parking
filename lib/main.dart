@@ -20,12 +20,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'PARKING',
-      initialBinding: Initialbindings(),
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
-      home: const PinEntryScreen(),
-    );
+        title: 'PARKING',
+        initialBinding: Initialbindings(),
+        theme: ThemeData(
+          useMaterial3: true,
+        ),
+        home: const PinEntryScreen());
   }
 }

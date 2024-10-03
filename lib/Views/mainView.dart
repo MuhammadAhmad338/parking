@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:flutter/material.dart';
+import 'package:parking/Helper/const.dart';
 
 class PinEntryScreen extends StatefulWidget {
   const PinEntryScreen({super.key});
@@ -53,12 +54,12 @@ class _PinEntryScreenState extends State<PinEntryScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.lock_outline,
-                size: 80,
-                color: Colors.blue,
+              const Gap(10),
+              Image.asset(
+                Const.parking,
+                scale: 4,
               ),
-              const Gap(20),
+              const Gap(10),
               const Text(
                 'Enter Pin',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -69,7 +70,7 @@ class _PinEntryScreenState extends State<PinEntryScreen> {
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey[600]),
               ),
-              const Gap(30),
+              const Gap(15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
@@ -86,7 +87,7 @@ class _PinEntryScreenState extends State<PinEntryScreen> {
                   ),
                 ),
               ),
-              const Gap(30),
+              const Gap(20),
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 3,
@@ -103,6 +104,7 @@ class _PinEntryScreenState extends State<PinEntryScreen> {
                   ],
                 ),
               ),
+              const Gap(25),
               Container(
                 width: double.infinity,
                 height: 50,
@@ -132,7 +134,7 @@ class _PinEntryScreenState extends State<PinEntryScreen> {
                   ),
                 ),
               ),
-              const Gap(50),
+              const Gap(35),
             ],
           ),
         ),
