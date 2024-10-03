@@ -11,4 +11,6 @@ class FirestoreServices {
         fromFirestore: (snapshot, _) => UserModel.fromJson(snapshot.data()!),
         toFirestore: (model, _) => model.toJson());
   }
+
+  void addDetails() {}
 }

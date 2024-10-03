@@ -1,0 +1,3 @@
+class Searchticketcontroller {
+  Searchticketcontroller._();
+}

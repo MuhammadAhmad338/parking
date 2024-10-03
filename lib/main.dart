@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:parking/Views/mainView.dart';
 import 'package:parking/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:parking/Screens/splashScreen.dart';
 import 'package:parking/InitialBinding/initialBinding.dart';
 
 void main() async {
@@ -21,10 +21,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
         title: 'PARKING',
+        debugShowCheckedModeBanner: false,
         initialBinding: Initialbindings(),
         theme: ThemeData(
           useMaterial3: true,
         ),
-        home: const PinEntryScreen());
+        home: const SplashScreen());
   }
 }
