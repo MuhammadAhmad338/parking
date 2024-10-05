@@ -2,7 +2,6 @@ import 'package:gap/gap.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:parking/Helper/const.dart';
-import 'package:parking/Helper/helper.dart';
 import 'package:parking/Screens/MainScreen/View/mainScreen.dart';
 
 class PinEntryScreen extends StatefulWidget {
@@ -32,17 +31,22 @@ class _PinEntryScreenState extends State<PinEntryScreen> {
   }
 
   Widget _buildKeypadButton(String label, VoidCallback onPressed) {
-    return AspectRatio(
-      aspectRatio: 1,
-      child: TextButton(
-        onPressed: onPressed,
-        style: TextButton.styleFrom(
-          shape: const CircleBorder(),
-          backgroundColor: Colors.grey[200],
-        ),
-        child: Text(
-          label,
-          style: const TextStyle(fontSize: 24, color: Colors.black87),
+    return Container(
+      width: 20, // Adjust this value as needed
+      height: 20, // Adjust this value as needed
+      margin: const EdgeInsets.all(4), // Add some spacing between buttons
+      child: Material(
+        color: Colors.grey[200],
+        shape: const CircleBorder(),
+        child: InkWell(
+          onTap: onPressed,
+          customBorder: const CircleBorder(),
+          child: Center(
+            child: Text(
+              label,
+              style: const TextStyle(fontSize: 24, color: Colors.black87),
+            ),
+          ),
         ),
       ),
     );
@@ -101,46 +105,12 @@ class _PinEntryScreenState extends State<PinEntryScreen> {
                     _buildKeypadButton('$i', () => _addDigit('$i')),
                   _buildKeypadButton('⌫', _removeDigit),
                   _buildKeypadButton('0', () => _addDigit('0')),
-                  _buildKeypadButton('⟳', () {}),
+                  _buildKeypadButton('=>', () {
+                    Get.to(() => const Mainscreen());
+                  }),
                 ],
               ),
             ),
-            const Gap(25),
-            Container(
-              width: double.infinity,
-              height: 50,
-              decoration: BoxDecoration(
-                color: _pin.isEmpty ? Colors.grey : Colors.blue,
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 3,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: TextButton(
-                onPressed: () {
-                  if (_pin.isNotEmpty) {
-                    Get.offAll(() => const Mainscreen());
-                  } else {
-                    Helper.showSnack(context, "Please enter the pin!");
-                  }
-                  // Implement sign in logic here
-                },
-                child: const Text(
-                  'Sign In',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
-            const Gap(35),
           ],
         ),
       ),
