@@ -21,7 +21,7 @@ class Searchticketscreen extends StatelessWidget {
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: CColors.blackColor),
                 ),
-                hintText: 'Enter number plate',
+                hintText: 'Search',
               ),
             ),
           ),
