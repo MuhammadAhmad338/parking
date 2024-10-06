@@ -1,35 +1,39 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class Ticket {
-  final int? id;
-  final String numberPlate;
-  final int vehicleId;
-  final int userId;
-  final DateTime createdAt;
+  final String? id;
+  final String number_plate;
+  final String vehicle_type;
+  final String userid;
+  final String username;
+  final DateTime date;
 
-  Ticket({
-    this.id,
-    required this.numberPlate,
-    required this.vehicleId,
-    required this.userId,
-    required this.createdAt,
-  });
+  Ticket(
+      {this.id,
+      required this.number_plate,
+      required this.vehicle_type,
+      required this.userid,
+      required this.username,
+      required this.date});
 
-  factory Ticket.fromJson(Map<String, dynamic> json) {
-    return Ticket(
-      id: json['id'] as int?,
-      numberPlate: json['number_plate'] as String,
-      vehicleId: json['vehicle_id'] as int,
-      userId: json['user_id'] as int,
-      createdAt: DateTime.parse(json['created_at'] as String),
-    );
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      "id": id,
+      'number_plate': number_plate,
+      'vehicle_type': vehicle_type,
+      'username': username,
+      'userid': userid,
+      'date': date.millisecondsSinceEpoch,
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'number_plate': numberPlate,
-      'vehicle_id': vehicleId,
-      'user_id': userId,
-      'created_at': createdAt.toIso8601String(),
-    };
+  factory Ticket.fromMap(Map<String, dynamic> map) {
+    return Ticket(
+      id: map['id'] as String?,
+      number_plate: map['number_plate'] as String,
+      vehicle_type: ['vehicle_type'] as String,
+      username: ['username'] as String,
+      userid: ['user'] as String,
+      date: DateTime.fromMillisecondsSinceEpoch(map['date'] as int),
+    );
   }
 }

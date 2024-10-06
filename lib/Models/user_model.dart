@@ -1,4 +1,5 @@
 class UserModel {
+  final String? id;
   final String name;
   final String cnic;
   final String pic;
@@ -6,6 +7,7 @@ class UserModel {
   final bool isAdmin;
 
   UserModel({
+    this.id,
     required this.name,
     required this.cnic,
     required this.pic,
@@ -15,6 +17,7 @@ class UserModel {
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'name': name,
       'cnic': cnic,
       'pic': pic,
@@ -25,6 +28,7 @@ class UserModel {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
+      id: json['id'],
       name: json['name'],
       cnic: json['cnic'],
       pic: json['pic'],

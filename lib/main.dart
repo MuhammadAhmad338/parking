@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:parking/Helper/colors.dart';
 import 'package:parking/firebase_options.dart';
+import 'Screens/MainScreen/View/mainScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:parking/Screens/splashScreen.dart';
 import 'package:parking/InitialBinding/initialBinding.dart';
 
 void main() async {
@@ -22,10 +23,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         title: 'PARKING',
         debugShowCheckedModeBanner: false,
-        initialBinding: Initialbindings(),
+        initialBinding: InitialBindingImplementation(),
         theme: ThemeData(
           useMaterial3: true,
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: CColors.blueColor, // Change to your desired color
+          ),
+          // You can also set other properties here, like textTheme, buttonTheme, etc.
         ),
-        home: const SplashScreen());
+        home: const Mainscreen());
   }
 }

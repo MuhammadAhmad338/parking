@@ -24,12 +24,12 @@ class Addticketscreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: CColors.whiteColor,
                     borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: CColors.greyColor,
                         spreadRadius: 1,
                         blurRadius: 3,
-                        offset: const Offset(0, 2),
+                        offset: Offset(0, 2),
                       ),
                     ],
                   ),
@@ -60,7 +60,14 @@ class Addticketscreen extends StatelessWidget {
                 Gap(8),
                 TextField(
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: CColors.blackColor), // Default border
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: CColors.blackColor), // Enabled border
+                    ),
                     hintText: 'Enter number plate',
                   ),
                 ),
