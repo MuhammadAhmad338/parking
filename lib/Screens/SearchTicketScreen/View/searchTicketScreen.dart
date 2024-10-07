@@ -31,18 +31,67 @@ class Searchticketscreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Card(
                   margin: const EdgeInsets.all(8.0),
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: CColors.blueColor,
-                      child: Text('${index + 1}'),
+                  elevation: 4, // Adds shadow around the card
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0), // Rounded corners
+                    side: BorderSide(
+                        color: Colors.grey.shade300,
+                        width: 1), // Border around the card
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                const Icon(
+                                    Icons.shopping_cart), // Shopping cart icon
+                                const Gap(8),
+                                Text(
+                                  'Abc-${index + 1}-${1000 + index}',
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            const Text(
+                              'Price',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        const Gap(12),
+                        const Text(
+                          'Employee Name',
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
+                        const Gap(8),
+                        const Divider(
+                          color: Colors.grey, // Horizontal line (hr-like)
+                          thickness: 1,
+                        ),
+                        const Gap(8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Location',
+                              style: TextStyle(
+                                  fontSize: 14, color: Colors.grey[600]),
+                            ),
+                            Text(
+                              '19 Sep, 2023 04:14 PM',
+                              style: TextStyle(
+                                  fontSize: 14, color: Colors.grey[600]),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    title: Text('Ticket #${index + 1}'),
-                    subtitle: Text('Number Plate: ABC-${1000 + index}'),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () {
-                      // Handle card tap
-                      print('Tapped on ticket #${index + 1}');
-                    },
                   ),
                 );
               },
