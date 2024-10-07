@@ -24,23 +24,24 @@ class Addticketscreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: CColors.whiteColor,
                     borderRadius: BorderRadius.circular(8),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: CColors.greyColor,
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                        offset: Offset(0, 2),
-                      ),
-                    ],
+                    border: Border.all(
+                      color: CColors.greyColor, // Set the border color to gray
+                      width: 1, // Border width
+                    ),
                   ),
                   child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.shopping_cart, size: 40),
+                      Icon(
+                        Icons.shopping_cart,
+                        size: 40,
+                        color: Colors.grey,
+                      ),
                       Gap(8),
                       Text(
                         'Rs: 20',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.grey),
                       ),
                     ],
                   ),
@@ -59,16 +60,32 @@ class Addticketscreen extends StatelessWidget {
                 ),
                 Gap(8),
                 TextField(
+                  cursorColor:
+                      CColors.blackColor, // Set the cursor color to black
                   decoration: InputDecoration(
+                    hintText: 'Enter number plate',
+                    hintStyle: TextStyle(
+                        color: CColors.greyColor), // Placeholder in gray
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: CColors.blackColor), // Default border
+                        color: CColors.greyColor, // Default border color
+                      ),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: CColors.blackColor), // Enabled border
+                        color: CColors.greyColor, // Border when not focused
+                      ),
                     ),
-                    hintText: 'Enter number plate',
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color:
+                            CColors.blackColor, // Border when focused (active)
+                        width: 2.0,
+                      ),
+                    ),
+                  ),
+                  style: TextStyle(
+                    color: CColors.blackColor, // Text color when typing
                   ),
                 ),
               ],
