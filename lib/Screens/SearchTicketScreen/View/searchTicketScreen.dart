@@ -31,7 +31,7 @@ class Searchticketscreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Card(
                   margin: const EdgeInsets.all(8.0),
-                  elevation: 4, // Adds shadow around the card
+                  elevation: 1, // Adds shadow around the card
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0), // Rounded corners
                     side: BorderSide(
