@@ -25,8 +25,7 @@ class _MainscreenState extends State<Mainscreen> {
             currentIndex: mainScreenController.pageIndex.value,
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.add), label: "ADD"),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.plus_one), label: "Subtract")
+              BottomNavigationBarItem(icon: Icon(Icons.list), label: "List")
             ],
           )),
     );
